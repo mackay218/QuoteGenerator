@@ -144,13 +144,13 @@ $(document).ready(function(){
     //turn into array
     qWords = qWords.split(" ");
     if(qWords != "" && qWords[0]){
-      var trumpWords = ["Bigly", "Yuge", "...Believe Me...", "Honestly",
+      var trumpWords = ["Bigly", "is Yuge", "...Believe Me...", "Honestly",
                         "stupid", "smart", "Loser", "Moron", "We", "They",
                         "Great","Fire and Fury", "Incredible", "on both sides",
                         "men and women", "Covfefe", "Fake news", "folks",
                         "Tremendous", "A lot of Money", "Classy",
                         "millions and billions", "you'll find out", "winning",
-                        "No Collusion", "Tremendous", "weak", "strong", "zero",
+                        "No Collusion", "Tremendous", "is weak", "is strong", "zero",
                         "amazing", "rich", "Ivanka", "Putin", "Russia", "Sad!"]
       //number of words to change
       var max = qWords.length/2;
