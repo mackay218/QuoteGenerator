@@ -10,11 +10,13 @@ $(document).ready(function(){
   var quoteTextStyle = "";
   var portLinkStyle = "";
 
-  var quoteOrTrumpTest = "";
+  var quoteOrTrumpTest = 0;
   var quoteLength = "";
   var q = "";
   var a = "";
   var qWords = "";
+
+  var trumpifyCounter = 0;
 
   $("#getQuote").on("click",function(){
     $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=?&lang=en",
@@ -132,6 +134,7 @@ $(document).ready(function(){
     $("#backgroundQuote p").attr("style", backgroundTextStyle);
 
     quoteOrTrumpTest = 0;
+    trumpifyCounter = 0;
 
   });
 
@@ -143,7 +146,11 @@ $(document).ready(function(){
     qWords = q.replace('"', "'").replace('"', "'");
     //turn into array
     qWords = qWords.split(" ");
-    if(qWords != "" && qWords[0]){
+
+    trumpifyCounter += 1;
+
+
+    if(qWords != "" && qWords[0] && trumpifyCounter <= 1){
       var trumpWords = ["Bigly", "is Yuge", "...Believe Me...", "honestly",
                         "stupid", "smart", "Loser", "Moron", "we", "they",
                         "great","Fire and Fury", "incredible", "on both sides",
@@ -444,7 +451,7 @@ $(document).ready(function(){
     }
 
     //trumpified quote
-    else if(quoteOrTrumpTest == 1){
+    else if(quoteOrTrumpTest >= 1){
       //landscape
       if(window.innerWidth > window.innerHeight){
         $("#author").attr("style", "font-weight: bold; font-style: normal; \
