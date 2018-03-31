@@ -68,7 +68,10 @@ $(document).ready(function(){
         $("#quoteContainer").attr("style", "font-size: 2.5vh;");
       }
 
-      else{
+      else if(quoteLength > 100){
+        $("#quoteContainer").attr("style", "font-size: 3vh");
+      }
+      else {
         $("#quoteContainer").attr("style", "font-size: 4vh");
       }
 
@@ -252,22 +255,29 @@ $(document).ready(function(){
             quoteTextStyle = "color: rgb(238, 232, 170); \
                               text-shadow: -2px  0 rgb(153, 101, 21); \
                               font-family: 'Arvo', serif; \
-                              font-size: 2vh;"
+                              font-size: 2.5vh;"
           }
 
           else if(qWords.length > 200){
             quoteTextStyle = "color: rgb(238, 232, 170); \
                               text-shadow: -2px  0 rgb(153, 101, 21); \
                               font-family: 'Arvo', serif; \
-                              font-size: 2.5vh;"
+                              font-size: 3vh;"
           }
 
+
+          else if(qWords.length > 100){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 3vh;"
+          }
 
           else{
             quoteTextStyle = "color: rgb(238, 232, 170); \
                               text-shadow: -2px  0 rgb(153, 101, 21); \
                               font-family: 'Arvo', serif; \
-                              font-size: 3vh;"
+                              font-size: 4vh;"
           }
 
         }
@@ -345,6 +355,9 @@ $(document).ready(function(){
             $("#quoteContainer").attr("style", "font-size: 2.5vh;");
           }
 
+          else if(quoteLength > 100){
+            $("#quoteContainer").attr("style", "font-size: 3vh");
+          }
           else{
             $("#quoteContainer").attr("style", "font-size: 4vh");
           }
@@ -404,16 +417,24 @@ $(document).ready(function(){
             quoteTextStyle = "color: rgb(238, 232, 170); \
                               text-shadow: -2px  0 rgb(153, 101, 21); \
                               font-family: 'Arvo', serif; \
-                              font-size: 3vh;"
+                              font-size: 2.5vh;"
 
             $("#quoteContainer").attr("style", quoteTextStyle);
           }
 
-          else{
+          else if(qWords.length > 100){
             quoteTextStyle = "color: rgb(238, 232, 170); \
                               text-shadow: -2px  0 rgb(153, 101, 21); \
                               font-family: 'Arvo', serif; \
                               font-size: 3vh;"
+
+            $("#quoteContainer").attr("style", quoteTextStyle);
+          }
+          else{
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 4vh;"
 
             $("#quoteContainer").attr("style", quoteTextStyle);
           }
@@ -449,6 +470,9 @@ $(document).ready(function(){
           $("#quoteContainer").attr("style", "font-size: 2.5vh;");
         }
 
+        else if(quoteLength > 100){
+          $("#quoteContainer").attr("style", "font-size: 3vh");
+        }
         else{
           $("#quoteContainer").attr("style", "font-size: 4vh");
         }
@@ -508,16 +532,24 @@ $(document).ready(function(){
           quoteTextStyle = "color: rgb(238, 232, 170); \
                             text-shadow: -2px  0 rgb(153, 101, 21); \
                             font-family: 'Arvo', serif; \
-                            font-size: 3vh;"
+                            font-size: 2.5vh;"
 
           $("#quoteContainer").attr("style", quoteTextStyle);
         }
 
-        else{
+        else if(qWords.length > 100){
           quoteTextStyle = "color: rgb(238, 232, 170); \
                             text-shadow: -2px  0 rgb(153, 101, 21); \
                             font-family: 'Arvo', serif; \
                             font-size: 3vh;"
+
+          $("#quoteContainer").attr("style", quoteTextStyle);
+        }
+        else{
+          quoteTextStyle = "color: rgb(238, 232, 170); \
+                            text-shadow: -2px  0 rgb(153, 101, 21); \
+                            font-family: 'Arvo', serif; \
+                            font-size: 4vh;"
 
           $("#quoteContainer").attr("style", quoteTextStyle);
         }
