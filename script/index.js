@@ -413,4 +413,105 @@ $(document).ready(function(){
 
   });
 
+  //change font size on window resize
+  $(window).resize(function(){
+    //regular quote
+    if(quoteOrTrumpTest == 0){
+      //landscape
+      if(window.innerWidth > window.innerHeight){
+        $("#author").attr("style", "font-weight: normal; font-style: italic; \
+                          font-size: 4vw;");
+
+        $("#quoteContainer").attr("style", "font-size: 3vw");
+      }
+      //portrait
+      else if(window.innerHeight > window.innerWidth){
+        $("#author").attr("style", "font-weight: normal; font-style: italic; \
+                          font-size: 3vh;");
+
+        if(quoteLength > 300){
+          $("#quoteContainer").attr("style", "font-size: 2vh;");
+        }
+
+        else if(quoteLength > 200){
+          $("#quoteContainer").attr("style", "font-size: 2.5vh;");
+        }
+
+        else{
+          $("#quoteContainer").attr("style", "font-size: 4vh");
+        }
+      }
+    }
+
+    //trumpified quote
+    else if(quoteOrTrumpTest == 1){
+      //landscape
+      if(window.innerWidth > window.innerHeight){
+        $("#author").attr("style", "font-weight: bold; font-style: normal; \
+                          font-size: 5vw;" );
+
+        if(qWords.length > 300){
+          quoteTextStyle = "color: rgb(238, 232, 170); \
+                            text-shadow: -2px  0 rgb(153, 101, 21); \
+                            font-family: 'Arvo', serif; \
+                            font-size: 2vw;"
+
+          $("#quoteContainer").attr("style", quoteTextStyle);
+        }
+
+        else if(qWords.length > 200){
+          quoteTextStyle = "color: rgb(238, 232, 170); \
+                            text-shadow: -2px  0 rgb(153, 101, 21); \
+                            font-family: 'Arvo', serif; \
+                            font-size: 2.5vw;"
+
+          $("#quoteContainer").attr("style", quoteTextStyle);
+        }
+
+        else{
+          quoteTextStyle = "color: rgb(238, 232, 170); \
+                            text-shadow: -2px  0 rgb(153, 101, 21); \
+                            font-family: 'Arvo', serif; \
+                            font-size: 3vw;"
+
+          $("#quoteContainer").attr("style", quoteTextStyle);
+        }
+
+      }
+      //portrait
+      else if(window.innerHeight > window.innerWidth){
+        $("#author").attr("style", "font-weight: bold; font-style: normal; \
+                          font-size: 4vh;" );
+
+        if(qWords.length > 300){
+          quoteTextStyle = "color: rgb(238, 232, 170); \
+                            text-shadow: -2px  0 rgb(153, 101, 21); \
+                            font-family: 'Arvo', serif; \
+                            font-size: 2vh;"
+
+          $("#quoteContainer").attr("style", quoteTextStyle);
+        }
+
+        else if(qWords.length > 200){
+          quoteTextStyle = "color: rgb(238, 232, 170); \
+                            text-shadow: -2px  0 rgb(153, 101, 21); \
+                            font-family: 'Arvo', serif; \
+                            font-size: 3vh;"
+
+          $("#quoteContainer").attr("style", quoteTextStyle);
+        }
+
+        else{
+          quoteTextStyle = "color: rgb(238, 232, 170); \
+                            text-shadow: -2px  0 rgb(153, 101, 21); \
+                            font-family: 'Arvo', serif; \
+                            font-size: 3vh;"
+
+          $("#quoteContainer").attr("style", quoteTextStyle);
+        }
+      }
+    }
+
+  });
+
 });
