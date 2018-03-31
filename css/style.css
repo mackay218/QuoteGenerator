@@ -107,6 +107,12 @@ h1{
   padding-bottom: 0;
 }
 
+@media only screen and (orientation: portrait){
+  .btn {
+    font-size: 15px;
+  }
+}
+
 .btn:focus{
   outline: none;
 }
