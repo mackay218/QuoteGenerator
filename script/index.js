@@ -220,6 +220,58 @@ $(document).ready(function(){
     }
 
     //change style for Trumpify
+      if(trumpifyCounter <= 1){
+        //landscape view
+        if(window.innerWidth > window.innerHeight){
+          if(qWords.length > 300){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 2vw;"
+          }
+          else if(qWords.length > 200){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 2.5vw;"
+          }
+
+
+          else{
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 3vw;"
+          }
+        }
+
+        //portait view
+        else if(window.innerHeight > window.innerWidth){
+
+          if(qWords.length > 300){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 2vh;"
+          }
+
+          else if(qWords.length > 200){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 2.5vh;"
+          }
+
+
+          else{
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 3vh;"
+          }
+
+        }
+      }
 
     background = "background: linear-gradient(to top right, rgb(237, 142, 0), \
     rgb(238, 232, 170), rgb(212, 175, 55), rgb(238, 232, 170));"
@@ -236,56 +288,7 @@ $(document).ready(function(){
                   box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2); \
                   "
 
-    //landscape view
-    if(window.innerWidth > window.innerHeight){
-      if(qWords.length > 300 ){
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 2vw;"
-      }
-      else if(qWords.length > 200){
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 2.5vw;"
-      }
 
-
-      else{
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 3vw;"
-      }
-    }
-
-    //portait view
-    else if(window.innerHeight > window.innerWidth){
-
-      if(qWords.length > 300 ){
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 2vh;"
-      }
-
-      else if(qWords.length > 200){
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 2.5vh;"
-      }
-
-
-      else{
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 3vh;"
-      }
-
-  }
 
     textStyle = "color: rgb(238, 232, 170); \
                       text-shadow: -2px  0 rgb(153, 101, 21); \

@@ -15,10 +15,13 @@ quoteTl.add(TweenLite.to("#signature", 0.5, {css:{"transform": "rotateX(180deg)"
 quoteTl.add(TweenLite.to("#signature", 0.5, {css:{"transform": "rotateX(360deg)"}}),"-=0.8");
 
 
+
 $("#getQuote").click( function(){
   quoteTl.restart();
 });
 
-$("#trumpify").click( function(){
-  quoteTl.restart();
-});
+
+
+  $("#trumpify").click( function(){
+    quoteTl.restart();
+  });
