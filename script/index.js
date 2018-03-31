@@ -17,6 +17,7 @@ $(document).ready(function(){
   var qWords = "";
 
   var trumpifyCounter = 0;
+  console.log(trumpifyCounter);
 
   $("#getQuote").on("click",function(){
     $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=?&lang=en",
@@ -54,7 +55,7 @@ $(document).ready(function(){
     /* font size change for orientation and quote size*/
     //landscape view
     if(window.innerWidth > window.innerHeight){
-      $("#quoteContainer").attr("#style", "font-size: 3vw");
+      $("#quoteContainer").attr("style", "font-size: 3vw");
     }
 
     //portrait view
@@ -135,6 +136,7 @@ $(document).ready(function(){
 
     quoteOrTrumpTest = 0;
     trumpifyCounter = 0;
+    console.log(trumpifyCounter);
 
   });
 
@@ -148,7 +150,7 @@ $(document).ready(function(){
     qWords = qWords.split(" ");
 
     trumpifyCounter += 1;
-
+    console.log(trumpifyCounter);
 
     if(qWords != "" && qWords[0] && trumpifyCounter <= 1){
       var trumpWords = ["Bigly", "is Yuge", "...Believe Me...", "honestly",
