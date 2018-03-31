@@ -10,11 +10,14 @@ $(document).ready(function(){
   var quoteTextStyle = "";
   var portLinkStyle = "";
 
-  var quoteOrTrumpTest = "";
+  var quoteOrTrumpTest = 0;
   var quoteLength = "";
   var q = "";
   var a = "";
   var qWords = "";
+
+  var trumpifyCounter = 0;
+  console.log(trumpifyCounter);
 
   $("#getQuote").on("click",function(){
     $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=?&lang=en",
@@ -52,7 +55,7 @@ $(document).ready(function(){
     /* font size change for orientation and quote size*/
     //landscape view
     if(window.innerWidth > window.innerHeight){
-      $("#quoteContainer").attr("#style", "font-size: 3vw");
+      $("#quoteContainer").attr("style", "font-size: 3vw");
     }
 
     //portrait view
@@ -132,6 +135,8 @@ $(document).ready(function(){
     $("#backgroundQuote p").attr("style", backgroundTextStyle);
 
     quoteOrTrumpTest = 0;
+    trumpifyCounter = 0;
+    console.log(trumpifyCounter);
 
   });
 
@@ -143,7 +148,11 @@ $(document).ready(function(){
     qWords = q.replace('"', "'").replace('"', "'");
     //turn into array
     qWords = qWords.split(" ");
-    if(qWords != "" && qWords[0]){
+
+    trumpifyCounter += 1;
+    console.log(trumpifyCounter);
+
+    if(qWords != "" && qWords[0] && trumpifyCounter <= 1){
       var trumpWords = ["Bigly", "is Yuge", "...Believe Me...", "honestly",
                         "stupid", "smart", "Loser", "Moron", "we", "they",
                         "great","Fire and Fury", "incredible", "on both sides",
@@ -211,6 +220,58 @@ $(document).ready(function(){
     }
 
     //change style for Trumpify
+      if(trumpifyCounter <= 1){
+        //landscape view
+        if(window.innerWidth > window.innerHeight){
+          if(qWords.length > 300){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 2vw;"
+          }
+          else if(qWords.length > 200){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 2.5vw;"
+          }
+
+
+          else{
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 3vw;"
+          }
+        }
+
+        //portait view
+        else if(window.innerHeight > window.innerWidth){
+
+          if(qWords.length > 300){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 2vh;"
+          }
+
+          else if(qWords.length > 200){
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 2.5vh;"
+          }
+
+
+          else{
+            quoteTextStyle = "color: rgb(238, 232, 170); \
+                              text-shadow: -2px  0 rgb(153, 101, 21); \
+                              font-family: 'Arvo', serif; \
+                              font-size: 3vh;"
+          }
+
+        }
+      }
 
     background = "background: linear-gradient(to top right, rgb(237, 142, 0), \
     rgb(238, 232, 170), rgb(212, 175, 55), rgb(238, 232, 170));"
@@ -227,56 +288,7 @@ $(document).ready(function(){
                   box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2); \
                   "
 
-    //landscape view
-    if(window.innerWidth > window.innerHeight){
-      if(qWords.length > 300 ){
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 2vw;"
-      }
-      else if(qWords.length > 200){
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 2.5vw;"
-      }
 
-
-      else{
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 3vw;"
-      }
-    }
-
-    //portait view
-    else if(window.innerHeight > window.innerWidth){
-
-      if(qWords.length > 300 ){
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 2vh;"
-      }
-
-      else if(qWords.length > 200){
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 2.5vh;"
-      }
-
-
-      else{
-        quoteTextStyle = "color: rgb(238, 232, 170); \
-                          text-shadow: -2px  0 rgb(153, 101, 21); \
-                          font-family: 'Arvo', serif; \
-                          font-size: 3vh;"
-      }
-
-  }
 
     textStyle = "color: rgb(238, 232, 170); \
                       text-shadow: -2px  0 rgb(153, 101, 21); \
@@ -444,7 +456,7 @@ $(document).ready(function(){
     }
 
     //trumpified quote
-    else if(quoteOrTrumpTest == 1){
+    else if(quoteOrTrumpTest >= 1){
       //landscape
       if(window.innerWidth > window.innerHeight){
         $("#author").attr("style", "font-weight: bold; font-style: normal; \
