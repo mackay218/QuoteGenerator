@@ -16,6 +16,8 @@ $(document).ready(function(){
   var a = "";
   var qWords = "";
 
+  var trumpifyCounter = 0;
+
   $("#getQuote").on("click",function(){
     $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=?&lang=en",
     function (quote){
@@ -132,6 +134,7 @@ $(document).ready(function(){
     $("#backgroundQuote p").attr("style", backgroundTextStyle);
 
     quoteOrTrumpTest = 0;
+    trumpifyCounter = 0;
 
   });
 
@@ -143,7 +146,11 @@ $(document).ready(function(){
     qWords = q.replace('"', "'").replace('"', "'");
     //turn into array
     qWords = qWords.split(" ");
-    if(qWords != "" && qWords[0] && quoteOrTrumpTest >= 1){
+
+    trumpifyCounter += 1;
+
+
+    if(qWords != "" && qWords[0] && trumpifyCounter <= 1){
       var trumpWords = ["Bigly", "is Yuge", "...Believe Me...", "honestly",
                         "stupid", "smart", "Loser", "Moron", "we", "they",
                         "great","Fire and Fury", "incredible", "on both sides",
@@ -303,7 +310,7 @@ $(document).ready(function(){
 
     $("#backgroundQuote p").attr("style", backgroundTextStyle);
 
-    quoteOrTrumpTest += 1;
+    quoteOrTrumpTest = 1;
 
   });
 
