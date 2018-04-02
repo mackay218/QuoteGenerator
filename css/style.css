@@ -13,7 +13,7 @@ body{
       grid: 10vh auto auto / auto auto auto;
 }
 
-#container{
+.container{
   grid-row: 2/3;
   grid-column: 2/3;
   position: relative;
@@ -81,20 +81,58 @@ h1{
   float: right;
 }
 
-#backgroundQuote{
+.backgroundQuote{
+  position: absolute;
+  top: 0;
+  left: 0;
   grid-row: 1/4;
   grid-column: 1/4;
   height: 100vh;
-  overflow-y: hidden;
+  width: 100vw;
   text-align: center;
+
+  transition: 3s;
+  overflow-y: hidden;
 }
 
-#backgroundQuote p{
+#backgroundQuote2{
+  opacity: 0;
+}
+
+.backgroundQuote p{
   margin: 0;
   font-size: 20vw;
   color: rgba(255,255,255,0.2);
+}
+
+.trumpBackGround{
+  position: absolute;
+  top: 0;
+  left: 0;
+  grid-row: 1/4;
+  grid-column: 1/4;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to top right, rgb(237, 142, 0), rgb(238, 232, 170),
+                              rgb(212, 175, 55), rgb(238, 232, 170));
+  overflow-y: hidden;
+  text-align: center;
+  opacity: 0;
+}
+
+.trumpBackGround p{
+  margin: 0;
+  font-size: 20vw;
+  background-color: rgb(218, 165, 32);
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
   z-index: -1;
 }
+
+
 
 .btn{
   width: auto;
@@ -108,6 +146,7 @@ h1{
   border-top: 4px solid rgba(255, 255, 255, 0.2);
   border-right: 4px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 0;
+  transition: 1s;
 }
 
 @media only screen and (orientation: portrait){

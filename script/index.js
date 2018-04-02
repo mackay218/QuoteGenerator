@@ -16,8 +16,10 @@ $(document).ready(function(){
   var a = "";
   var qWords = "";
 
+  var clickCounter = 1;
+
   var trumpifyCounter = 0;
-  console.log(trumpifyCounter);
+
 
   $("#getQuote").on("click",function(){
     $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=?&lang=en",
@@ -100,9 +102,21 @@ $(document).ready(function(){
       color1 = "rgb(" + colNum1 + ", " + colNum2 + ", " + colNum3 + ")";
     }
     var background = "background: linear-gradient(to top right, "
-                      + color1 + ", " + color2 + ");"
+                      + color1 + ", " + color2 + "); opacity: 1; transition: 3s"
 
-    $("body").attr("style", background);
+    // smooth transition of colors
+    clickCounter += 1;
+
+    if(clickCounter % 2 == 0){
+      $("#backgroundQuote1").attr("style", background);
+      $("#backgroundQuote2").attr("style", "opacity: 0; transition: 3s");
+    }
+    else{
+      $("#backgroundQuote1").attr("style", "opacity: 0; transition: 3s");
+      $("#backgroundQuote2").attr("style", background);
+    }
+
+    $(".trumpBackGround").attr("style", "opacity: 0; transition: 3s");
 
     //change quote box style
 
@@ -111,35 +125,36 @@ $(document).ready(function(){
                       box-shadow: 0 0 20px 5px rgba(0,0,0,0.5);"
 
     quoteTextStyle = "color: white; text-shadow: -1px 0 rgba(255,255,255,0.5); \
-                      font-family: 'PT Sans', sans-serif;"
+                      font-family: 'PT Sans', sans-serif; transition: 0.5s"
 
     textStyle = "color: white; text-shadow: -1px 0 rgba(255,255,255,0.5); \
-                      font-family: 'PT Sans', sans-serif;"
+                 font-family: 'PT Sans', sans-serif transition: 0.5s;"
 
-    var buttonStyle = "color: white; font-family: 'PT Sans', sans-serif;";
+    var buttonStyle = "color: white; font-family: 'PT Sans', sans-serif; \
+                       transition: 0.5s;"
 
-    $("#container").attr("style", quoteBoxStyle);
+
+
+
+    $(".container").attr("style", quoteBoxStyle)
+
+
+
     $("#quoteContainer").attr("style", quoteTextStyle);
     $("h1").attr("style", textStyle);
     $(".buttons").attr("style", "background: rgba(255,255,255,0.5);")
     $(".btn").attr("style", "color: white;");
     $("#tweetBtn").attr("style", buttonStyle);
-    $(".portfolioLink").attr("style", "color: white;")
+    $(".portfolioLink").attr("style", "color: white; transition: 1s")
 
-    portLinkStyle = "color: white; -webkit-text-stroke: 2px rgba(255,255,255,0.2);"
+    portLinkStyle = "color: white; -webkit-text-stroke: 2px rgba(255,255,255,0.2); \
+                    transition: 1s;"
     $(".heroLogo").attr("style", portLinkStyle);
 
-    //change background text color
-    backgroundTextStyle = "background-color: transparent; color: rgba(255,255,255,0.2); \
-                     text-shadow: none; \
-                     -webkit-background-clip: none; -moz-background-clip: none; \
-                     background-clip: none;"
-
-    $("#backgroundQuote p").attr("style", backgroundTextStyle);
 
     quoteOrTrumpTest = 0;
     trumpifyCounter = 0;
-    console.log(trumpifyCounter);
+
 
   });
 
@@ -153,7 +168,7 @@ $(document).ready(function(){
     qWords = qWords.split(" ");
 
     trumpifyCounter += 1;
-    console.log(trumpifyCounter);
+
 
     if(qWords != "" && qWords[0] && trumpifyCounter <= 1){
       var trumpWords = ["Bigly", "is Yuge", "...Believe Me...", "honestly",
@@ -283,10 +298,9 @@ $(document).ready(function(){
         }
       }
 
-    background = "background: linear-gradient(to top right, rgb(237, 142, 0), \
-    rgb(238, 232, 170), rgb(212, 175, 55), rgb(238, 232, 170));"
 
-    $("body").attr("style", background);
+    $(".backgroundQuote").attr("style", "opacity: 0; transition: 3s");
+    $(".trumpBackGround").attr("style", "opacity: 1; transition: 3s");
 
     quoteBoxStyle = "backgroundcolor: linear-gradient(to top right, \
                   rgba(237, 142, 0, 0.2), rgba(238, 232, 170, 0.2), \
@@ -302,28 +316,25 @@ $(document).ready(function(){
 
     textStyle = "color: rgb(238, 232, 170); \
                       text-shadow: -2px  0 rgb(153, 101, 21); \
-                      font-family: 'Arvo', serif;"
+                      font-family: 'Arvo', serif; transition: 0.5s"
 
-    $("#container").attr("style", quoteBoxStyle);
+    $(".container").attr("style", quoteBoxStyle);
     $("#quoteContainer").attr("style", quoteTextStyle,);
     $("h1").attr("style", textStyle);
     $("button").attr("style", textStyle);
     $("#tweetBtn").attr("style", textStyle);
 
-    portLinkStyle = "color: rgb(212, 175, 55); font-family: 'Arvo', serif;"
+    portLinkStyle = "color: rgb(212, 175, 55); font-family: 'Arvo', serif; \
+                    transition: 1s;"
 
     $(".portfolioLink").attr("style", portLinkStyle);
-    $(".heroLogo").attr("style", "-webkit-text-stroke: 2px rgba(212, 175, 55, 0.5);")
+    $(".heroLogo").attr("style", "-webkit-text-stroke: 2px rgba(212, 175, 55, 0.5); \
+                        transition: 1s;")
 
     $(".buttons").attr("style", "background: linear-gradient(to right, rgba(0, 0, 0, 0.2), \
                         rgba(255,255,255,0.2));")
 
-    backgroundTextStyle = "background-color: rgb(218, 165, 32); color: transparent; \
-                     text-shadow: 0px 2px 3px rgba(255,255,255,0.5);\
-                     -webkit-background-clip: text; -moz-background-clip: text; \
-                     background-clip: text;"
 
-    $("#backgroundQuote p").attr("style", backgroundTextStyle);
 
     quoteOrTrumpTest = 1;
 
