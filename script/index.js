@@ -22,12 +22,66 @@ $(document).ready(function(){
 
 
   $("#getQuote").on("click",function(){
-    $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=?&lang=en",
+    var qT = $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=?&lang=en",
     function (quote){
+      //if forismatic is working
+      if(qT){
+        //append quote
+        $(".quote").html("&quot" + quote.quoteText + "&quot");
+
+        if(quote.quoteAuthor){
+          $(".author").html("-" + quote.quoteAuthor);
+        }
+        //if no author credit to unknown
+        else{
+          $("#author").html("-unknown");
+        }
+      }
+      //else if forismatic is not working
+      else{
+        if(clickCounter == 2){
+          //message explaining limit of quotes
+          $(".quote").html("&quot The number of random quotes is currently \
+                            limited do to connection issues &quot");
+          $("#author").html("-Dan");
+        }
+        else{
+          var quoteArray = [["To err is human, but to really foul things up \
+                              you need a computer.", "Paul R. Ehrlich"],
+                            ["A student of life considers the world a classroom.",
+                              "Harvey Mackay"],
+                            ["The first rule of intelligent tinkering is to \
+                              save all the parts.", "Paul Ehrlich"],
+                            ["No one welcomes chaos, but why crave stavility and \
+                              predictability?", "Hugh Mackay"],
+                            ["The saddest aspect of life right now is that science \
+                              gathers knowledge faster than society gathers wisdom.",
+                              "Isaac Asimov"],
+                            ["The true delight is in the finding out rather than in \
+                              the knowing", "Isaac Asimov"],
+                            ["I propose to consider the question, Can machines think?",
+                              "Alan Turing"],
+                            ["It is not enough to have a good mind; the main thing is \
+                              to use it well.", "René Descartes"],
+                            ["Technology is cool, but you've go to use it as opposed \
+                              to letting it use you.", "Prince"],
+                            ["Dearly beloved, We are gathered here today to get \
+                              through this thing called life.", "Prince"]];
+
+          //choose quote at random
+          var quoteArrayNum =  Math.floor(Math.random() * quoteArray.length);
+
+          //append quote
+          $(".quote").html("&quot" + quoteArray[quoteArrayNum][0] + "&quot");
+          //append author
+          $("#author").html("-" + quoteArray[quoteArrayNum][1]);
+
+        }
+
+      }
       //correct title
       $("h1").html("Quotes of Wisdom");
-      //append quote
-      $(".quote").html("&quot" + quote.quoteText + "&quot");
+
       //append author
       //landscape view
       if(window.innerWidth > window.innerHeight){
@@ -40,48 +94,42 @@ $(document).ready(function(){
                           font-size: 3vh;");
       }
 
-      if(quote.quoteAuthor){
-        $(".author").html("-" + quote.quoteAuthor);
-      }
-      //if no author credit to unknown
-      else{
-        $("#author").html("-unknown");
-      }
-
-    $("#tweetBtn").attr("href", "https://twitter.com/intent/tweet?text=" +
-                        $("#quoteContainer").text());
 
 
-    quoteLength = (quote.quoteText).length;
+      $("#tweetBtn").attr("href", "https://twitter.com/intent/tweet?text=" +
+                          $("#quoteContainer").text());
 
-    /* font size change for orientation and quote size*/
-    //landscape view
-    if(window.innerWidth > window.innerHeight){
-      $("#quoteContainer").attr("style", "font-size: 3vw");
-    }
 
-    //portrait view
-    else if(window.innerHeight > window.innerWidth){
-      if(quoteLength > 300){
-        $("#quoteContainer").attr("style", "font-size: 2vh;");
+        quoteLength = (quote.quoteText).length;
+
+        /* font size change for orientation and quote size*/
+        //landscape view
+      if(window.innerWidth > window.innerHeight){
+        $("#quoteContainer").attr("style", "font-size: 3vw");
       }
 
-      else if(quoteLength > 200){
-        $("#quoteContainer").attr("style", "font-size: 2.5vh;");
-      }
+      //portrait view
+      else if(window.innerHeight > window.innerWidth){
+        if(quoteLength > 300){
+          $("#quoteContainer").attr("style", "font-size: 2vh;");
+        }
 
-      else if(quoteLength > 100){
-        $("#quoteContainer").attr("style", "font-size: 3vh");
-      }
-      else {
-        $("#quoteContainer").attr("style", "font-size: 4vh");
-      }
+        else if(quoteLength > 200){
+          $("#quoteContainer").attr("style", "font-size: 2.5vh;");
+        }
 
-
-    }
-    /*************************************************/
+        else if(quoteLength > 100){
+          $("#quoteContainer").attr("style", "font-size: 3vh");
+        }
+        else {
+          $("#quoteContainer").attr("style", "font-size: 4vh");
+        }
+      }
 
     });
+    /*************************************************/
+
+
 
     //gen random numbers for rgb color
     var colNum1 = Math.floor(Math.random() * 255);
