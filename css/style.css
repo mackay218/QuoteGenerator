@@ -90,7 +90,6 @@ h1{
   height: 100vh;
   width: 100vw;
   text-align: center;
-
   transition: 3s;
   overflow-y: hidden;
 }
@@ -212,7 +211,6 @@ h1{
   display: flex;
   color: white;
   font-family: "PT Sans", sans-serif;
-  flex-direction: row;
   text-decoration: none;
 }
 
