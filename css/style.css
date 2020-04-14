@@ -216,6 +216,7 @@ h1{
 
 .heroLogo{
   position: relative;
+  width: 50vw;
   font-size: 60px;
   -webkit-text-stroke: 2px rgba(255,255,255,0.2);
 
