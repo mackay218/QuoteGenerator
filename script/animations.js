@@ -1,7 +1,3 @@
-$(document).ready(function(){
-
-
-});
 
 var quoteTl = new TimelineLite({paused: true});
 

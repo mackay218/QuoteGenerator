@@ -53,7 +53,7 @@ $(document).ready(function(){
                                   "Harvey Mackay"],
                               ["The first rule of intelligent tinkering is to \
                                 save all the parts.", "Paul Ehrlich"],
-                              ["No one welcomes chaos, but why crave stavility and \
+                              ["No one welcomes chaos, but why crave stability and \
                                 predictability?", "Hugh Mackay"],
                               ["The saddest aspect of life right now is that science \
                                 gathers knowledge faster than society gathers wisdom.",
@@ -226,7 +226,18 @@ $(document).ready(function(){
                         "tremendous", "have a lot of money", "classy",
                         "millions and billions", "you'll find out", "winning",
                         "No Collusion","is weak", "is strong", "zero",
-                        "amazing", "is rich", "Ivanka", "Putin", "Russia", "Sad!"]
+                        "amazing", "is rich", "Ivanka", "Jared", "Melanie", "Mike", 
+                        "Mike Pence", "Pence", "Putin", "Russia", "Sad!", "nasty", 
+                         "nasty woman", "that's a nasty question", "witch hunt!", "perfect call",
+                        "moscow mitch", "the Ukraine", "China", "Xi", "no one saw it coming",
+                      "no one saw this coming", "no one could have predicted this", "COVID19", 
+                    "the virus", "the flu", "a little flu", "a strong vaccine", 
+                    "hydroxychloroquine", "my uncle the scientist", "good genes", "good jeans",
+                  "golf", "I'll never get to golf again", "golf carts", "(waves tiny hands)", "impeachment", 
+                  "I'm impeached", "my authority is total", "My Generals", "Syria", "Assad", "Saudi Arabia",
+        "Mohammad Bin Salman Al Saud", "Jamal Khashoggi", "Bezos", "Tim Apple", "Washington Post", "Fox News",
+      "Fox & Friends", "OAN", "Fauci", "Anthony Fauci", "quarantine", "stay at home", "masks", "ventilators", 
+      "federal stock pile", "failed tests", "NYC", "Florida", "9/11", "that woman in Michigan"]
       //number of words to change
       var max = qWords.length/2;
       var numOfChanges = Math.floor((Math.random() * (max - 1)) + 1);
